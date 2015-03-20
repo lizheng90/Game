@@ -29,8 +29,8 @@
 - (void) hitHead {
     CCLOG(@"play button pressed");
     
-    CCActionMoveTo *actionMoveTo1 = [CCActionMoveTo actionWithDuration:1.f position:ccp(310, 239)];
-    CCActionMoveTo *actionMoveTo2 = [CCActionMoveTo actionWithDuration:0.f position:ccp(320, 67)];
+    CCActionMoveTo *actionMoveTo1 = [CCActionMoveTo actionWithDuration:1.f position:ccp(330, 239)];
+    CCActionMoveTo *actionMoveTo2 = [CCActionMoveTo actionWithDuration:0.f position:ccp(340, 67)];
 
     [_hammer runAction : actionMoveTo1];
     [_hammer runAction : actionMoveTo2];
