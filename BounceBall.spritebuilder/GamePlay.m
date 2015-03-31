@@ -14,6 +14,9 @@
 {
     CCPhysicsNode *_physicsNode;
     CCNode *character;
+    
+    CCLabelTTF *_time_label;
+    int seconds;
 }
 
 // is called when CCB file has completed loading
@@ -27,6 +30,14 @@
     // generate stones every 5 seconds
     [self generateStone];
     
+    seconds = 0;
+    _time_label.visible = TRUE;
+    
+    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self
+                                                      selector: @selector(callAfterOneSecond:) userInfo: nil repeats: YES];
+    
+//    [self addChild:_time_label];
+//    [self addTime];
 }
 
 // called on every touch in this scene
@@ -93,9 +104,37 @@
     [_physicsNode addChild:stone];
     
     // manually create & apply a force to launch the stone
-    CGPoint launchDirection = ccp(30, 30);
+    CGPoint launchDirection = ccp(arc4random_uniform(200), arc4random_uniform(200));
     CGPoint force = ccpMult(launchDirection, 1000);
     [stone.physicsBody applyForce:force];
 }
+
+-(void) callAfterOneSecond:(NSTimer*) t
+{
+    seconds++;
+    NSLog(@"%d", seconds);
+    _time_label.string = [NSString stringWithFormat:@"%d", seconds];
+    _time_label.visible = TRUE;
+}
+
+//- (void)addTime {
+//    while(TRUE) {
+//        seconds++;
+//        [_time_label setString:[NSString stringWithFormat:@"%d", seconds]];
+//        [NSThread sleepForTimeInterval:1.0f];
+//    }
+//}
+
+//- (void)showTime {
+//    while (TRUE) {
+//        seconds++;
+//        NSLog(@"%d", seconds);
+//        _time_label.string = [NSString stringWithFormat:@"%d", seconds];
+////        _time_label.visible = TRUE;
+//        [NSThread sleepForTimeInterval:1.0f];
+//    }
+//}
+
+
 
 @end
