@@ -10,9 +10,4 @@
 
 @interface Stone : CCSprite
 
-{
-    
-}
-
-
 @end

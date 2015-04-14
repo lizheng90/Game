@@ -10,6 +10,7 @@
 		5951EAFD1AB1583D00FE2C73 /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5951EAFC1AB1583D00FE2C73 /* GamePlay.m */; };
 		5951EB071AB15D7700FE2C73 /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = 5951EB061AB15D7700FE2C73 /* Stone.m */; };
 		5951EB101AB209AC00FE2C73 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 5951EB0F1AB209AC00FE2C73 /* Character.m */; };
+		59B6636F1ADCD1A900893E3F /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B6636E1ADCD1A900893E3F /* Coin.m */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B121029197484DA004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B12102A197484DD004C1E1D /* hideActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* hideActivity.java */; };
@@ -177,6 +178,8 @@
 		5951EB061AB15D7700FE2C73 /* Stone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stone.m; sourceTree = "<group>"; };
 		5951EB0E1AB209AC00FE2C73 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		5951EB0F1AB209AC00FE2C73 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		59B6636D1ADCD1A900893E3F /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		59B6636E1ADCD1A900893E3F /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				5951EAFB1AB1583D00FE2C73 /* GamePlay.h */,
+				59B6636D1ADCD1A900893E3F /* Coin.h */,
+				59B6636E1ADCD1A900893E3F /* Coin.m */,
 				5951EAFC1AB1583D00FE2C73 /* GamePlay.m */,
 				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -881,6 +886,7 @@
 				5951EAFD1AB1583D00FE2C73 /* GamePlay.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				59B6636F1ADCD1A900893E3F /* Coin.m in Sources */,
 				5951EB101AB209AC00FE2C73 /* Character.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

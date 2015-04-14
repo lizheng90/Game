@@ -8,6 +8,8 @@
 
 #import "GamePlay.h"
 #import "Character.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
+
 
 @implementation GamePlay
 
@@ -17,6 +19,8 @@
     
     CCLabelTTF *_time_label;
     int seconds;
+    
+    NSMutableArray *stones;
 }
 
 // is called when CCB file has completed loading
@@ -26,60 +30,37 @@
     
     // create character
     [self launchCharacter];
+
     
     // generate stones every 5 seconds
     [self generateStone];
+    [self generateCoin];
     
     seconds = 0;
     _time_label.visible = TRUE;
     
     NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self
                                                       selector: @selector(callAfterOneSecond:) userInfo: nil repeats: YES];
+
+    _physicsNode.collisionDelegate = self;
     
-//    [self addChild:_time_label];
-//    [self addTime];
+    stones = [[NSMutableArray alloc] init];
+
 }
 
 // called on every touch in this scene
 - (void) touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event{
-    NSLog(@"begin");
-    
-//    CGPoint touchLocation = [touch locationInNode:character];
-//    if (CGRectContainsPoint([character boundingBox], touchLocation))
-//    {
-//        
-//    }
+    // move the player to the touch location smoothly
+    [character stopActionByTag:1]; // Stop an action by tag to avoid having multiple move
+    // actions running simultaneously
+    CGPoint pos = [touch locationInNode:_physicsNode]; // this allow the player to move about the
+    // full extents of the _levelNode (4000x500 points)
+    CCAction* move = [CCActionMoveTo actionWithDuration:1.2 position:pos];
+    move.tag = 1;
+    [character runAction:move];
 }
 
-- (void) touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    // whenever touches move, update the position of character to the touch position
-    CGPoint touchLocation = [touch locationInNode:character];
-    character.position = touchLocation;
-}
 
-- (void) touchesEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event{
-    NSLog(@"Ended");
-}
-
-//-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"begin");
-//}
-//
-//-(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-//    
-//    UITouch *touch = [touches anyObject];
-//    CGPoint location = [touch locationInView: [touch view]];
-//    location = [[CCDirector sharedDirector] convertToGL:location];
-//    
-//    
-//    
-//    character.position = location;
-//    
-//}
-//
-//-(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"Ended");
-//}
 
 
 - (void)launchCharacter {
@@ -101,40 +82,62 @@
     stone.position = ccpAdd(ccp(100, 5), ccp(100, 5));
     
     // add stone to physicsNode
+    [stones addObject:stone];
+    NSLog(@"%d", [stones count]);
     [_physicsNode addChild:stone];
     
     // manually create & apply a force to launch the stone
     CGPoint launchDirection = ccp(arc4random_uniform(200), arc4random_uniform(200));
-    CGPoint force = ccpMult(launchDirection, 1000);
+    CGPoint force = ccpMult(launchDirection, 200);
     [stone.physicsBody applyForce:force];
+}
+
+- (void)generateCoin {
+    [NSTimer scheduledTimerWithTimeInterval:(7.0) target:self selector:@selector(launchCoin) userInfo:nil repeats:YES];
+}
+
+- (void)launchCoin {
+    // loads the coin.ccb
+    CCNode* coin = [CCBReader load:@"Coin"];
+    coin.position = ccpAdd(ccp(arc4random_uniform(300), arc4random_uniform(100)),
+                           ccp(arc4random_uniform(300),arc4random_uniform(100)));
+    
+    // add coin to physicsNode
+    [_physicsNode addChild:coin];
+    
 }
 
 -(void) callAfterOneSecond:(NSTimer*) t
 {
     seconds++;
-    NSLog(@"%d", seconds);
+//    NSLog(@"%d", seconds);
     _time_label.string = [NSString stringWithFormat:@"%d", seconds];
     _time_label.visible = TRUE;
 }
 
-//- (void)addTime {
-//    while(TRUE) {
-//        seconds++;
-//        [_time_label setString:[NSString stringWithFormat:@"%d", seconds]];
-//        [NSThread sleepForTimeInterval:1.0f];
-//    }
-//}
+- (void) stoneRemoved: (CCNode *)Stone {
+    [Stone removeFromParent];
+}
 
-//- (void)showTime {
-//    while (TRUE) {
-//        seconds++;
-//        NSLog(@"%d", seconds);
-//        _time_label.string = [NSString stringWithFormat:@"%d", seconds];
-////        _time_label.visible = TRUE;
-//        [NSThread sleepForTimeInterval:1.0f];
-//    }
-//}
+- (void) coinRemoved:(CCNode *)Coin {
+    
+    // finally, remove the destroyed seal
+    [Coin removeFromParent];
+}
 
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair Coin:(CCNode *)nodeA Character:(CCNode *)nodeB
+{
+//    NSLog(@"aaa");
+    float energy = [pair totalKineticEnergy];
+    
+    // if energy is large enough, remove the seal
+    if (energy > -1.f) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [self coinRemoved:nodeA];
+            CCNode *stone = [stones objectAtIndex:[stones count] - 1];
+            [self stoneRemoved:stone];
+        } key:nodeA];    }
+}
 
 
 @end
