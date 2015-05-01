@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "927F6198196C771E000F43EF"
-               BuildableName = "hide Android.app"
-               BlueprintName = "hide Android"
-               ReferencedContainer = "container:hide.xcodeproj">
+               BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
+               BuildableName = "Space Walker.app"
+               BlueprintName = "Space Walker iOS"
+               ReferencedContainer = "container:Space Walker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "hide Android.app"
-            BlueprintName = "hide Android"
-            ReferencedContainer = "container:hide.xcodeproj">
+            BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
+            BuildableName = "Space Walker.app"
+            BlueprintName = "Space Walker iOS"
+            ReferencedContainer = "container:Space Walker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -48,13 +48,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "hide Android.app"
-            BlueprintName = "hide Android"
-            ReferencedContainer = "container:hide.xcodeproj">
+            BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
+            BuildableName = "Space Walker.app"
+            BlueprintName = "Space Walker iOS"
+            ReferencedContainer = "container:Space Walker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -66,13 +67,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "hide Android.app"
-            BlueprintName = "hide Android"
-            ReferencedContainer = "container:hide.xcodeproj">
+            BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
+            BuildableName = "Space Walker.app"
+            BlueprintName = "Space Walker iOS"
+            ReferencedContainer = "container:Space Walker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

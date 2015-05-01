@@ -10,4 +10,8 @@
 
 @implementation Stone
 
+- (void)didLoadFromCCB {
+    self.physicsBody.collisionType = @"Stone";
+}
+
 @end

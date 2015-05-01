@@ -8,7 +8,9 @@
 
 #import "GamePlay.h"
 #import "Character.h"
+#import "NewCharacter.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
+
 
 
 @implementation GamePlay
@@ -20,11 +22,21 @@
     CCLabelTTF *_time_label;
     int seconds;
     
+    CCButton *_GameOverButton;
+    CCButton *_RestartButton;
+    CCButton *_ShareFB;
+    
     NSMutableArray *stones;
+    
+    NSTimer* myTimer;
+    
+//    BOOL _gameOver;
 }
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
+    //    _RestartButton.visible = true;
+    
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     
@@ -39,7 +51,7 @@
     seconds = 0;
     _time_label.visible = TRUE;
     
-    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self
+    myTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self
                                                       selector: @selector(callAfterOneSecond:) userInfo: nil repeats: YES];
 
     _physicsNode.collisionDelegate = self;
@@ -59,9 +71,6 @@
     move.tag = 1;
     [character runAction:move];
 }
-
-
-
 
 - (void)launchCharacter {
     // load the character.ccb
@@ -83,7 +92,7 @@
     
     // add stone to physicsNode
     [stones addObject:stone];
-    NSLog(@"%d", [stones count]);
+//    NSLog(@"%d", [stones count]);
     [_physicsNode addChild:stone];
     
     // manually create & apply a force to launch the stone
@@ -110,7 +119,6 @@
 -(void) callAfterOneSecond:(NSTimer*) t
 {
     seconds++;
-//    NSLog(@"%d", seconds);
     _time_label.string = [NSString stringWithFormat:@"%d", seconds];
     _time_label.visible = TRUE;
 }
@@ -121,22 +129,55 @@
 
 - (void) coinRemoved:(CCNode *)Coin {
     
-    // finally, remove the destroyed seal
+    // remove coin
     [Coin removeFromParent];
 }
 
 - (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair Coin:(CCNode *)nodeA Character:(CCNode *)nodeB
 {
-//    NSLog(@"aaa");
     float energy = [pair totalKineticEnergy];
     
-    // if energy is large enough, remove the seal
-    if (energy > -1.f) {
+    if (energy > -100.f) {
         [[_physicsNode space] addPostStepBlock:^{
             [self coinRemoved:nodeA];
             CCNode *stone = [stones objectAtIndex:[stones count] - 1];
             [self stoneRemoved:stone];
         } key:nodeA];    }
+}
+
+- (void)gameOver {
+    _RestartButton.visible = TRUE;
+    _GameOverButton.visible = TRUE;
+    _ShareFB.visible = TRUE;
+    [myTimer invalidate];
+}
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair Stone:(CCNode *)nodeA Character:(CCNode *)nodeB
+{
+    
+    float energy = [pair totalKineticEnergy];
+    
+    if (energy > -100.f) {
+        [self gameOver];
+    }
+}
+
+- (void)restart {
+    CCScene *scene = [CCBReader loadAsScene:@"GamePlay"];
+    [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+- (void)fb {
+    
+    NSString *score = [NSString stringWithFormat:@"%d",seconds];
+    NSLog(@"%@", score);
+    NSString *urlString = @"hahaha";
+    NSString *title = [NSString stringWithFormat:@"%@,%@", @"My score is: ", score];
+
+    NSString *shareUrlString = [NSString stringWithFormat:@"http://www.facebook.com/sharer.php?u=%@&t=%@", urlString , title];
+    shareUrlString = [shareUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [[NSURL alloc] initWithString:shareUrlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 
