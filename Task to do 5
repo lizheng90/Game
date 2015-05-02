@@ -1,0 +1,5 @@
+Task to do 5
+
+1. Add facebook share button.
+
+2. Add collision handler for character and stones, once character hit by stone, set user interaction to NO, set restart button, Facebook share button and Game Over sprite visible. 

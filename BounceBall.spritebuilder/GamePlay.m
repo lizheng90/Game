@@ -70,6 +70,15 @@
     CCAction* move = [CCActionMoveTo actionWithDuration:1.2 position:pos];
     move.tag = 1;
     [character runAction:move];
+    
+//    // move the player to the touch location smoothly
+//    [_playerNode stopActionByTag:1]; // Stop an action by tag to avoid having multiple move
+//    // actions running simultaneously
+//    CGPoint pos = [touch locationInNode:_levelNode]; // this allow the player to move about the
+//    // full extents of the _levelNode (4000x500 points)
+//    CCAction* move = [CCActionMoveTo actionWithDuration:1.2 position:pos];
+//    move.tag = 1;
+//    [_playerNode runAction:move];
 }
 
 - (void)launchCharacter {
@@ -179,6 +188,27 @@
     NSURL *url = [[NSURL alloc] initWithString:shareUrlString];
     [[UIApplication sharedApplication] openURL:url];
 }
+
+//-(void) update:(CCTime)delta
+//{
+//    // update scroll node position to player node, with offset to center player in the view
+//    [self scrollToTarget:character];
+//}
+//
+//-(void) scrollToTarget:(CCNode*)target
+//{
+//    // assign the size of the view to viewSize,
+//    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+//    // the center point of the view is calculated and assigned to viewCenter
+//    CGPoint viewCenter = CGPointMake(viewSize.width / 2.0, viewSize.height / 2.0);
+//    // keeps the target node centered in the view
+//    CGPoint viewPos = ccpSub(target.positionInPoints, viewCenter);
+//    // clamp the viewPos to the level’s size using the MIN and MAX macros
+//    CGSize levelSize = _bgNode.contentSizeInPoints;
+//    viewPos.x = MAX(0.0, MIN(viewPos.x, levelSize.width - viewSize.width));
+//    viewPos.y = MAX(0.0, MIN(viewPos.y, levelSize.height - viewSize.height));
+//    _bgNode.positionInPoints = ccpNeg(viewPos);
+//}
 
 
 @end

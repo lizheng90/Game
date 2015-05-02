@@ -1,0 +1,8 @@
+Task to do 4
+
+1. add coins, create key frames for coins.
+
+2. add restart button to reload this game play scene.
+
+3. add collision handler for character and coins, once character get coins, the last aerolite will disappear.
+

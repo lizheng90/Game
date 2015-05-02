@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>17</integer>
+	<integer>18</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -51,7 +51,7 @@
 				<key>displayName</key>
 				<string>outerspace</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_bgNode</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -71,8 +71,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>175.47637939453125</real>
-							<real>128</real>
+							<real>377.83383178710938</real>
+							<real>257.01449584960938</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -96,8 +96,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.9626181125640869</real>
-							<real>1.4581462144851685</real>
+							<real>1.8891692161560059</real>
+							<real>1.7134299278259277</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -425,7 +425,7 @@
 								<key>value</key>
 								<array>
 									<real>579.6107177734375</real>
-									<real>245</real>
+									<real>257.25445556640625</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -778,7 +778,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>277.29718017578125</real>
+									<real>284.29718017578125</real>
 									<real>348.7940673828125</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -952,6 +952,8 @@
 						<real>0.5</real>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2161,8 +2163,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
