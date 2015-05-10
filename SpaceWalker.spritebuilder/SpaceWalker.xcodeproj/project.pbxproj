@@ -11,6 +11,10 @@
 		594BDBB81AF4670700BF8BCD /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 594BDBB71AF4670700BF8BCD /* Coin.m */; };
 		594BDBBB1AF477B700BF8BCD /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 594BDBBA1AF477B700BF8BCD /* Character.m */; };
 		594BDBBD1AF4857300BF8BCD /* 123.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594BDBBC1AF4857300BF8BCD /* 123.mp3 */; };
+		594BDBDD1AF4B04B00BF8BCD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594BDBDC1AF4B04B00BF8BCD /* FBSDKCoreKit.framework */; };
+		594BDBE11AF5351200BF8BCD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594BDBDE1AF5351200BF8BCD /* Bolts.framework */; };
+		594BDBE21AF5351200BF8BCD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594BDBDF1AF5351200BF8BCD /* FBSDKLoginKit.framework */; };
+		594BDBE31AF5351200BF8BCD /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594BDBE01AF5351200BF8BCD /* FBSDKShareKit.framework */; };
 		59FD97781AF43DD500506928 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FD97771AF43DD500506928 /* GameScene.m */; };
 		5B121030197484FA004C1E1D /* SpaceWalkerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* SpaceWalkerActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
@@ -161,6 +165,10 @@
 		594BDBB91AF477B700BF8BCD /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		594BDBBA1AF477B700BF8BCD /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
 		594BDBBC1AF4857300BF8BCD /* 123.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 123.mp3; path = ../123.mp3; sourceTree = "<group>"; };
+		594BDBDC1AF4B04B00BF8BCD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		594BDBDE1AF5351200BF8BCD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		594BDBDF1AF5351200BF8BCD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		594BDBE01AF5351200BF8BCD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		59FD97761AF43DD500506928 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		59FD97771AF43DD500506928 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -271,11 +279,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
+				594BDBDD1AF4B04B00BF8BCD /* FBSDKCoreKit.framework in Frameworks */,
+				594BDBE31AF5351200BF8BCD /* FBSDKShareKit.framework in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
+				594BDBE21AF5351200BF8BCD /* FBSDKLoginKit.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
 				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
+				594BDBE11AF5351200BF8BCD /* Bolts.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
 				B77F1B3C17B978D7009739AE /* UIKit.framework in Frameworks */,
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
@@ -513,6 +525,10 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				594BDBDE1AF5351200BF8BCD /* Bolts.framework */,
+				594BDBDF1AF5351200BF8BCD /* FBSDKLoginKit.framework */,
+				594BDBE01AF5351200BF8BCD /* FBSDKShareKit.framework */,
+				594BDBDC1AF4B04B00BF8BCD /* FBSDKCoreKit.framework */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
 				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
@@ -1127,11 +1143,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Jackyliz/Documents/FacebookSDK,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1162,11 +1183,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Jackyliz/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
