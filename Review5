@@ -1,0 +1,4 @@
+Review5
+
+1. finished, button is added successfully
+2. finished, collision handler for character and stones is added successfully. If the character hit by stone, the game will be over. And restart button, share button will appear
